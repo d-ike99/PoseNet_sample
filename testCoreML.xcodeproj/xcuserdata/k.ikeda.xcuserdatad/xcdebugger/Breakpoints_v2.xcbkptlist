@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "7CF7F362-244D-4536-818D-7E1F2771AD06"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FC91A09-6DA7-489F-9AAF-50F1458B6440"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testCoreML/Utils/VideoCapture.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "setCaptureSessionOutput()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7FC91A09-6DA7-489F-9AAF-50F1458B6440 - d9c1645ce75e690f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "testCoreML.VideoCapture.(setCaptureSessionOutput in _9C4416CB960CC4C5C9034194F8544375)() throws -&gt; ()"
+                  moduleName = "testCoreML"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/k.ikeda/work/dev/xcode/varification/testCoreML/testCoreML/Utils/VideoCapture.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "7FC91A09-6DA7-489F-9AAF-50F1458B6440 - 19988624a2eeacfb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.AVCaptureOutput) -&gt; () in testCoreML.VideoCapture.(setCaptureSessionOutput in _9C4416CB960CC4C5C9034194F8544375)() throws -&gt; ()"
+                  moduleName = "testCoreML"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/k.ikeda/work/dev/xcode/varification/testCoreML/testCoreML/Utils/VideoCapture.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2280CBB-22E4-4323-B914-FCC64FD4CF4B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testCoreML/Utils/VideoCapture.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "captureOutput(_:didOutput:from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
