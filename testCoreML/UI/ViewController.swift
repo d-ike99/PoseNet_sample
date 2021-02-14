@@ -29,7 +29,8 @@ class ViewController: UIViewController {
 
     private var popOverPresentationManager: PopOverPresentationManager?
 
-    private var testButton: UIButton!
+    // captured
+    private var captureButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,13 @@ class ViewController: UIViewController {
         // For convenience, the idle timer is disabled to prevent the screen from locking.
         UIApplication.shared.isIdleTimerDisabled = true
 
-//        self.previewImageView = PoseImageView()
-//        previewImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        
-        self.testButton = UIButton()
-        testButton.backgroundColor = .red
-        testButton.isHidden = false
-        testButton.addTarget(self, action: #selector(settingButtonTapped(_:)), for: UIControl.Event.touchUpInside)
+        // setting
+        self.captureButton = UIButton()
+        captureButton.frame = CGRect(x: 10, y: 20, width: 100, height: 30)
+        captureButton.setTitleColor(.white, for: .normal)
+        captureButton.backgroundColor = .clear
+        captureButton.isHidden = false
+        captureButton.addTarget(self, action: #selector(captureButtonTapped(_:)), for: UIControl.Event.touchUpInside)
 
         
         do {
@@ -55,20 +56,7 @@ class ViewController: UIViewController {
         poseNet.delegate = self
         setupAndBeginCapturingVideoFrames()
         
-        //self.view.addSubview(previewImageView)
-    }
-
-    private func setupAndBeginCapturingVideoFrames() {
-        videoCapture.setUpAVCapture { error in
-            if let error = error {
-                print("Failed to setup camera with error \(error)")
-                return
-            }
-
-            self.videoCapture.delegate = self
-
-            self.videoCapture.startCapturing()
-        }
+        self.view.addSubview(captureButton)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,6 +85,16 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @objc func captureButtonTapped(_ sender: UIButton){
+        if videoCapture.getCaptureStatus() {
+            self.stopCaptureSession()
+            
+            
+        } else {
+            self.setupAndBeginCapturingVideoFrames()
+        }
+    }
 
     @IBAction func onAlgorithmSegmentValueChanged(_ sender: UISegmentedControl) {
         guard let selectedAlgorithm = Algorithm(
@@ -105,6 +103,32 @@ class ViewController: UIViewController {
         }
 
         algorithm = selectedAlgorithm
+    }
+}
+
+// MARK: - capture video
+extension ViewController {
+    // start capture session
+    private func setupAndBeginCapturingVideoFrames() {
+        // memo: every time you start running, input and output infomation is re-register in captureSession.
+        videoCapture.setUpAVCapture { error in
+            if let error = error {
+                print("Failed to setup camera with error \(error)")
+                return
+            }
+
+            self.videoCapture.delegate = self
+            self.videoCapture.startCapturing()
+            
+            self.captureButton.setTitle("capturing", for: .normal)
+        }
+    }
+    
+    // stop capture session
+    private func stopCaptureSession() {
+        videoCapture.stopCapturing()
+        
+        self.captureButton.setTitle("capture stop", for: .normal)
     }
 }
 

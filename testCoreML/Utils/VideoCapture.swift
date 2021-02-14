@@ -85,7 +85,6 @@ class VideoCapture: NSObject {
             }
         }
     }
-
     private func setUpAVCapture() throws {
         if captureSession.isRunning {
             captureSession.stopRunning()
@@ -194,6 +193,12 @@ class VideoCapture: NSObject {
                 }
             }
         }
+    }
+    public func stopCapturing() {
+        self.captureSession.stopRunning()
+    }
+    public func getCaptureStatus() -> Bool {
+        return self.captureSession.isRunning
     }
 
     /// End capturing frames
