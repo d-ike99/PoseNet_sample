@@ -32,6 +32,9 @@ class ViewController: UIViewController {
     // captured
     private var captureButton: UIButton!
     
+    // graph
+    private var poseGraph: GraphView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +48,9 @@ class ViewController: UIViewController {
         captureButton.backgroundColor = .clear
         captureButton.isHidden = false
         captureButton.addTarget(self, action: #selector(captureButtonTapped(_:)), for: UIControl.Event.touchUpInside)
-
+        
+        // graph
+        self.poseGraph = GraphView(frame: CGRect(x: 0, y: self.view.frame.height - 300, width: self.view.frame.width, height: 100))
         
         do {
             poseNet = try PoseNet()
@@ -57,6 +62,7 @@ class ViewController: UIViewController {
         setupAndBeginCapturingVideoFrames()
         
         self.view.addSubview(captureButton)
+        self.view.addSubview(poseGraph)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -205,7 +211,11 @@ extension ViewController: PoseNetDelegate {
         let poses = algorithm == .single
             ? [poseBuilder.pose]
             : poseBuilder.poses
-
+        
+        // show poseimage
         previewImageView.show(poses: poses, on: currentFrame)
+        
+        // show graph
+        self.poseGraph.didUpdatedChartView(poses: poses)
     }
 }

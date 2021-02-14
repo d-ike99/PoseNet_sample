@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,6 +34,7 @@
 		8A6AFFFB25736E9D009923B3 /* GradientOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFED25736E9D009923B3 /* GradientOverlayView.swift */; };
 		8A6AFFFC25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFEF25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift */; };
 		8A6AFFFD25736E9D009923B3 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFF025736E9D009923B3 /* VideoCapture.swift */; };
+		8AB25DBA25D8FB2700994202 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB25DB925D8FB2700994202 /* GraphView.swift */; };
 		A3F70B31534AC4F783DCA36B /* Pods_testCoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A0034AF4EE5B37DBC00A3D /* Pods_testCoreML.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		8A6AFFED25736E9D009923B3 /* GradientOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientOverlayView.swift; sourceTree = "<group>"; };
 		8A6AFFEF25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Extension.swift"; sourceTree = "<group>"; };
 		8A6AFFF025736E9D009923B3 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		8AB25DB925D8FB2700994202 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		8B0A4DC3E76DB8AE596FF939 /* Pods-testCoreML.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCoreML.release.xcconfig"; path = "Target Support Files/Pods-testCoreML/Pods-testCoreML.release.xcconfig"; sourceTree = "<group>"; };
 		D2414F4091606D343E62CB36 /* Pods-testCoreML-testCoreMLUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCoreML-testCoreMLUITests.debug.xcconfig"; path = "Target Support Files/Pods-testCoreML-testCoreMLUITests/Pods-testCoreML-testCoreMLUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3AF6A556724EE24F7EAE3F9 /* Pods-testCoreMLTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCoreMLTests.debug.xcconfig"; path = "Target Support Files/Pods-testCoreMLTests/Pods-testCoreMLTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,7 +137,6 @@
 				D3AF6A556724EE24F7EAE3F9 /* Pods-testCoreMLTests.debug.xcconfig */,
 				142380A0AE8C83AEE6EFB1A6 /* Pods-testCoreMLTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -224,6 +225,7 @@
 		8A6AFFE825736E9D009923B3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8AB25DB825D8FAD500994202 /* Group */,
 				8A6AFFE925736E9D009923B3 /* ViewController.swift */,
 				8A6AFFEA25736E9D009923B3 /* PoseImageView.swift */,
 				8A6AFFEB25736E9D009923B3 /* ConfigurationViewController.swift */,
@@ -240,6 +242,14 @@
 				8A6AFFF025736E9D009923B3 /* VideoCapture.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8AB25DB825D8FAD500994202 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				8AB25DB925D8FB2700994202 /* GraphView.swift */,
+			);
+			path = Group;
 			sourceTree = "<group>";
 		};
 		D6B7E0AA2C53B86D8287AF06 /* Frameworks */ = {
@@ -492,6 +502,7 @@
 				8A6AFFF625736E9D009923B3 /* PoseBuilderConfiguration.swift in Sources */,
 				8A6AFFF225736E9D009923B3 /* PoseBuilder+Multiple.swift in Sources */,
 				8A6AFFFA25736E9D009923B3 /* PopOverModalViewController.swift in Sources */,
+				8AB25DBA25D8FB2700994202 /* GraphView.swift in Sources */,
 				8A6AFFD525736CA6009923B3 /* PoseNet.swift in Sources */,
 				8A6AFF9925733AA8009923B3 /* AppDelegate.swift in Sources */,
 				8A6AFFF925736E9D009923B3 /* ConfigurationViewController.swift in Sources */,
