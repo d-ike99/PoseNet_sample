@@ -10,7 +10,6 @@
 		656CF304331965E12D662CD2 /* Pods_testCoreML_testCoreMLUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C61E2D892E0F6063AF2A873 /* Pods_testCoreML_testCoreMLUITests.framework */; };
 		6D6572814D6E48DB0F35CE37 /* Pods_testCoreMLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E46234A6A293AA0A55E3CA1 /* Pods_testCoreMLTests.framework */; };
 		8A6A001425737208009923B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6A001225737208009923B3 /* LaunchScreen.storyboard */; };
-		8A6A001525737208009923B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6A001325737208009923B3 /* Main.storyboard */; };
 		8A6AFF9925733AA8009923B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFF9825733AA8009923B3 /* AppDelegate.swift */; };
 		8A6AFF9B25733AA8009923B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFF9A25733AA8009923B3 /* SceneDelegate.swift */; };
 		8A6AFFB025733AA9009923B3 /* testCoreMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFAF25733AA9009923B3 /* testCoreMLTests.swift */; };
@@ -29,11 +28,14 @@
 		8A6AFFF625736E9D009923B3 /* PoseBuilderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFE725736E9D009923B3 /* PoseBuilderConfiguration.swift */; };
 		8A6AFFF725736E9D009923B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFE925736E9D009923B3 /* ViewController.swift */; };
 		8A6AFFF825736E9D009923B3 /* PoseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFEA25736E9D009923B3 /* PoseImageView.swift */; };
-		8A6AFFF925736E9D009923B3 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFEB25736E9D009923B3 /* ConfigurationViewController.swift */; };
 		8A6AFFFA25736E9D009923B3 /* PopOverModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFEC25736E9D009923B3 /* PopOverModalViewController.swift */; };
 		8A6AFFFB25736E9D009923B3 /* GradientOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFED25736E9D009923B3 /* GradientOverlayView.swift */; };
 		8A6AFFFC25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFEF25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift */; };
 		8A6AFFFD25736E9D009923B3 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFF025736E9D009923B3 /* VideoCapture.swift */; };
+		8A96639C2626586900C9E753 /* MainTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96639B2626586900C9E753 /* MainTabRouter.swift */; };
+		8A9663A42626592900C9E753 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663A32626592900C9E753 /* MainTabViewController.swift */; };
+		8A9663A926265C7100C9E753 /* ValificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663A826265C7100C9E753 /* ValificationRouter.swift */; };
+		8A9663AE26265C7E00C9E753 /* ValificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663AD26265C7E00C9E753 /* ValificationViewController.swift */; };
 		8AB25DBA25D8FB2700994202 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB25DB925D8FB2700994202 /* GraphView.swift */; };
 		A3F70B31534AC4F783DCA36B /* Pods_testCoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A0034AF4EE5B37DBC00A3D /* Pods_testCoreML.framework */; };
 /* End PBXBuildFile section */
@@ -62,7 +64,6 @@
 		6C61E2D892E0F6063AF2A873 /* Pods_testCoreML_testCoreMLUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testCoreML_testCoreMLUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E46234A6A293AA0A55E3CA1 /* Pods_testCoreMLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testCoreMLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6A001225737208009923B3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8A6A001325737208009923B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A6AFF9525733AA8009923B3 /* testCoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testCoreML.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6AFF9825733AA8009923B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A6AFF9A25733AA8009923B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,11 +88,14 @@
 		8A6AFFE725736E9D009923B3 /* PoseBuilderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseBuilderConfiguration.swift; sourceTree = "<group>"; };
 		8A6AFFE925736E9D009923B3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A6AFFEA25736E9D009923B3 /* PoseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseImageView.swift; sourceTree = "<group>"; };
-		8A6AFFEB25736E9D009923B3 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		8A6AFFEC25736E9D009923B3 /* PopOverModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverModalViewController.swift; sourceTree = "<group>"; };
 		8A6AFFED25736E9D009923B3 /* GradientOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientOverlayView.swift; sourceTree = "<group>"; };
 		8A6AFFEF25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Extension.swift"; sourceTree = "<group>"; };
 		8A6AFFF025736E9D009923B3 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		8A96639B2626586900C9E753 /* MainTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabRouter.swift; sourceTree = "<group>"; };
+		8A9663A32626592900C9E753 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		8A9663A826265C7100C9E753 /* ValificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValificationRouter.swift; path = testCoreML/UI/MainTabView/ValificationRouter.swift; sourceTree = SOURCE_ROOT; };
+		8A9663AD26265C7E00C9E753 /* ValificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValificationViewController.swift; path = testCoreML/UI/MainTabView/ValificationViewController.swift; sourceTree = SOURCE_ROOT; };
 		8AB25DB925D8FB2700994202 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		8B0A4DC3E76DB8AE596FF939 /* Pods-testCoreML.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCoreML.release.xcconfig"; path = "Target Support Files/Pods-testCoreML/Pods-testCoreML.release.xcconfig"; sourceTree = "<group>"; };
 		D2414F4091606D343E62CB36 /* Pods-testCoreML-testCoreMLUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCoreML-testCoreMLUITests.debug.xcconfig"; path = "Target Support Files/Pods-testCoreML-testCoreMLUITests/Pods-testCoreML-testCoreMLUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				8A6A001225737208009923B3 /* LaunchScreen.storyboard */,
-				8A6A001325737208009923B3 /* Main.storyboard */,
 				8A6AFF9725733AA8009923B3 /* testCoreML */,
 				8A6AFFAE25733AA9009923B3 /* testCoreMLTests */,
 				8A6AFFB925733AAA009923B3 /* testCoreMLUITests */,
@@ -225,10 +228,10 @@
 		8A6AFFE825736E9D009923B3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8A9663962625DDD000C9E753 /* MainTabView */,
 				8AB25DB825D8FAD500994202 /* Group */,
 				8A6AFFE925736E9D009923B3 /* ViewController.swift */,
 				8A6AFFEA25736E9D009923B3 /* PoseImageView.swift */,
-				8A6AFFEB25736E9D009923B3 /* ConfigurationViewController.swift */,
 				8A6AFFEC25736E9D009923B3 /* PopOverModalViewController.swift */,
 				8A6AFFED25736E9D009923B3 /* GradientOverlayView.swift */,
 			);
@@ -242,6 +245,25 @@
 				8A6AFFF025736E9D009923B3 /* VideoCapture.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A9663962625DDD000C9E753 /* MainTabView */ = {
+			isa = PBXGroup;
+			children = (
+				8A9663972625DDE000C9E753 /* VarificationView */,
+				8A96639B2626586900C9E753 /* MainTabRouter.swift */,
+				8A9663A32626592900C9E753 /* MainTabViewController.swift */,
+			);
+			path = MainTabView;
+			sourceTree = "<group>";
+		};
+		8A9663972625DDE000C9E753 /* VarificationView */ = {
+			isa = PBXGroup;
+			children = (
+				8A9663A826265C7100C9E753 /* ValificationRouter.swift */,
+				8A9663AD26265C7E00C9E753 /* ValificationViewController.swift */,
+			);
+			path = VarificationView;
 			sourceTree = "<group>";
 		};
 		8AB25DB825D8FAD500994202 /* Group */ = {
@@ -370,7 +392,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A6A001525737208009923B3 /* Main.storyboard in Resources */,
 				8A6A001425737208009923B3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,16 +526,19 @@
 				8AB25DBA25D8FB2700994202 /* GraphView.swift in Sources */,
 				8A6AFFD525736CA6009923B3 /* PoseNet.swift in Sources */,
 				8A6AFF9925733AA8009923B3 /* AppDelegate.swift in Sources */,
-				8A6AFFF925736E9D009923B3 /* ConfigurationViewController.swift in Sources */,
+				8A9663A926265C7100C9E753 /* ValificationRouter.swift in Sources */,
 				8A6AFFD325736CA6009923B3 /* PoseNetInput.swift in Sources */,
 				8A6AFFCC25733F5F009923B3 /* PoseNetMobileNet075S16FP16.mlmodel in Sources */,
 				8A6AFFF825736E9D009923B3 /* PoseImageView.swift in Sources */,
 				8A6AFFF325736E9D009923B3 /* PoseBuilder+Single.swift in Sources */,
+				8A9663AE26265C7E00C9E753 /* ValificationViewController.swift in Sources */,
 				8A6AFFDD25736E93009923B3 /* CGImage+Extension.swift in Sources */,
 				8A6AFFF125736E9D009923B3 /* Joint.swift in Sources */,
 				8A6AFFF425736E9D009923B3 /* Pose.swift in Sources */,
 				8A6AFFF525736E9D009923B3 /* PoseBuilder.swift in Sources */,
 				8A6AFFFB25736E9D009923B3 /* GradientOverlayView.swift in Sources */,
+				8A96639C2626586900C9E753 /* MainTabRouter.swift in Sources */,
+				8A9663A42626592900C9E753 /* MainTabViewController.swift in Sources */,
 				8A6AFFFD25736E9D009923B3 /* VideoCapture.swift in Sources */,
 				8A6AFF9B25733AA8009923B3 /* SceneDelegate.swift in Sources */,
 				8A6AFFDC25736E93009923B3 /* CGPoint+Extension.swift in Sources */,

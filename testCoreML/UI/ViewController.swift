@@ -12,7 +12,7 @@ import VideoToolbox
 
 class ViewController: UIViewController {
     /// The view the controller uses to visualize the detected poses.
-    @IBOutlet private var previewImageView: PoseImageView!
+    private var previewImageView: PoseImageView!
 
     private let videoCapture = VideoCapture()
 
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     private var currentFrame: CGImage?
 
     /// The algorithm the controller uses to extract poses from the current frame.
-    private var algorithm: Algorithm = .multiple
+    private var algorithm: Algorithm = .single
 
     /// The set of parameters passed to the pose builder when detecting poses.
     private var poseBuilderConfiguration = PoseBuilderConfiguration()
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // For convenience, the idle timer is disabled to prevent the screen from locking.
-        UIApplication.shared.isIdleTimerDisabled = true
+        //UIApplication.shared.isIdleTimerDisabled = true
 
         // setting
         self.captureButton = UIButton()
@@ -48,6 +48,10 @@ class ViewController: UIViewController {
         captureButton.backgroundColor = .clear
         captureButton.isHidden = false
         captureButton.addTarget(self, action: #selector(captureButtonTapped(_:)), for: UIControl.Event.touchUpInside)
+        
+        // image
+        self.previewImageView = PoseImageView()
+        previewImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         
         // graph
         self.poseGraph = GraphView(frame: CGRect(x: 0, y: self.view.frame.height - 300, width: self.view.frame.width, height: 100))
@@ -61,8 +65,11 @@ class ViewController: UIViewController {
         poseNet.delegate = self
         setupAndBeginCapturingVideoFrames()
         
+        self.view.addSubview(previewImageView)
         self.view.addSubview(captureButton)
         self.view.addSubview(poseGraph)
+        
+        self.view.backgroundColor = .red
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -77,13 +84,13 @@ class ViewController: UIViewController {
         setupAndBeginCapturingVideoFrames()
     }
 
-    @IBAction func onCameraButtonTapped(_ sender: Any) {
-        videoCapture.flipCamera { error in
-            if let error = error {
-                print("Failed to flip camera with error \(error)")
-            }
-        }
-    }
+//    @IBAction func onCameraButtonTapped(_ sender: Any) {
+//        videoCapture.flipCamera { error in
+//            if let error = error {
+//                print("Failed to flip camera with error \(error)")
+//            }
+//        }
+//    }
     @objc func settingButtonTapped(_ sender: UIButton){
         videoCapture.flipCamera { error in
             if let error = error {
@@ -102,14 +109,14 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func onAlgorithmSegmentValueChanged(_ sender: UISegmentedControl) {
-        guard let selectedAlgorithm = Algorithm(
-            rawValue: sender.selectedSegmentIndex) else {
-                return
-        }
-
-        algorithm = selectedAlgorithm
-    }
+//    @IBAction func onAlgorithmSegmentValueChanged(_ sender: UISegmentedControl) {
+//        guard let selectedAlgorithm = Algorithm(
+//            rawValue: sender.selectedSegmentIndex) else {
+//                return
+//        }
+//
+//        algorithm = selectedAlgorithm
+//    }
 }
 
 // MARK: - capture video
@@ -127,6 +134,8 @@ extension ViewController {
             self.videoCapture.startCapturing()
             
             self.captureButton.setTitle("capturing", for: .normal)
+            
+            print("caotureStart!!")
         }
     }
     
@@ -145,14 +154,14 @@ extension ViewController {
         guard let uiNavigationController = segue.destination as? UINavigationController else {
             return
         }
-        guard let configurationViewController = uiNavigationController.viewControllers.first
-            as? ConfigurationViewController else {
-                    return
-        }
+//        guard let configurationViewController = uiNavigationController.viewControllers.first
+//            as? ConfigurationViewController else {
+//                    return
+//        }
 
-        configurationViewController.configuration = poseBuilderConfiguration
-        configurationViewController.algorithm = algorithm
-        configurationViewController.delegate = self
+//        configurationViewController.configuration = poseBuilderConfiguration
+//        configurationViewController.algorithm = algorithm
+//        configurationViewController.delegate = self
 
         popOverPresentationManager = PopOverPresentationManager(presenting: self,
                                                                 presented: uiNavigationController)
@@ -163,17 +172,17 @@ extension ViewController {
 
 // MARK: - ConfigurationViewControllerDelegate
 
-extension ViewController: ConfigurationViewControllerDelegate {
-    func configurationViewController(_ viewController: ConfigurationViewController,
-                                     didUpdateConfiguration configuration: PoseBuilderConfiguration) {
-        poseBuilderConfiguration = configuration
-    }
-
-    func configurationViewController(_ viewController: ConfigurationViewController,
-                                     didUpdateAlgorithm algorithm: Algorithm) {
-        self.algorithm = algorithm
-    }
-}
+//extension ViewController: ConfigurationViewControllerDelegate {
+//    func configurationViewController(_ viewController: ConfigurationViewController,
+//                                     didUpdateConfiguration configuration: PoseBuilderConfiguration) {
+//        poseBuilderConfiguration = configuration
+//    }
+//
+//    func configurationViewController(_ viewController: ConfigurationViewController,
+//                                     didUpdateAlgorithm algorithm: Algorithm) {
+//        self.algorithm = algorithm
+//    }
+//}
 
 // MARK: - VideoCaptureDelegate
 
