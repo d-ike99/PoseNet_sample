@@ -36,6 +36,7 @@
 		8A9663A42626592900C9E753 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663A32626592900C9E753 /* MainTabViewController.swift */; };
 		8A9663A926265C7100C9E753 /* ValificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663A826265C7100C9E753 /* ValificationRouter.swift */; };
 		8A9663AE26265C7E00C9E753 /* ValificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663AD26265C7E00C9E753 /* ValificationViewController.swift */; };
+		8A9663D52627AABD00C9E753 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663D42627AABD00C9E753 /* PlayerView.swift */; };
 		8AB25DBA25D8FB2700994202 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB25DB925D8FB2700994202 /* GraphView.swift */; };
 		A3F70B31534AC4F783DCA36B /* Pods_testCoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A0034AF4EE5B37DBC00A3D /* Pods_testCoreML.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		8A9663A32626592900C9E753 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		8A9663A826265C7100C9E753 /* ValificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValificationRouter.swift; path = testCoreML/UI/MainTabView/ValificationRouter.swift; sourceTree = SOURCE_ROOT; };
 		8A9663AD26265C7E00C9E753 /* ValificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValificationViewController.swift; path = testCoreML/UI/MainTabView/ValificationViewController.swift; sourceTree = SOURCE_ROOT; };
+		8A9663D42627AABD00C9E753 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		8AB25DB925D8FB2700994202 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		8B0A4DC3E76DB8AE596FF939 /* Pods-testCoreML.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCoreML.release.xcconfig"; path = "Target Support Files/Pods-testCoreML/Pods-testCoreML.release.xcconfig"; sourceTree = "<group>"; };
 		D2414F4091606D343E62CB36 /* Pods-testCoreML-testCoreMLUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCoreML-testCoreMLUITests.debug.xcconfig"; path = "Target Support Files/Pods-testCoreML-testCoreMLUITests/Pods-testCoreML-testCoreMLUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -260,10 +262,19 @@
 		8A9663972625DDE000C9E753 /* VarificationView */ = {
 			isa = PBXGroup;
 			children = (
+				8A9663D32627AA9F00C9E753 /* UI */,
 				8A9663A826265C7100C9E753 /* ValificationRouter.swift */,
 				8A9663AD26265C7E00C9E753 /* ValificationViewController.swift */,
 			);
 			path = VarificationView;
+			sourceTree = "<group>";
+		};
+		8A9663D32627AA9F00C9E753 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8A9663D42627AABD00C9E753 /* PlayerView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		8AB25DB825D8FAD500994202 /* Group */ = {
@@ -527,6 +538,7 @@
 				8A6AFFD525736CA6009923B3 /* PoseNet.swift in Sources */,
 				8A6AFF9925733AA8009923B3 /* AppDelegate.swift in Sources */,
 				8A9663A926265C7100C9E753 /* ValificationRouter.swift in Sources */,
+				8A9663D52627AABD00C9E753 /* PlayerView.swift in Sources */,
 				8A6AFFD325736CA6009923B3 /* PoseNetInput.swift in Sources */,
 				8A6AFFCC25733F5F009923B3 /* PoseNetMobileNet075S16FP16.mlmodel in Sources */,
 				8A6AFFF825736E9D009923B3 /* PoseImageView.swift in Sources */,
