@@ -27,11 +27,13 @@ class ValificationViewController: UIViewController {
     var playerItem2: AVPlayerItem!
     var avplayer2: AVPlayer!
     var playerLayer2: AVPlayerLayer!
-    /// 表示部品
+    /// 画面部品
     var playerView: PlayerView!
     var playerView2: PlayerView!
     var link: CADisplayLink!
     var link2: CADisplayLink!
+    /// progress bar
+    var bar: UIProgressView!
     
     // 表示用部品
     var videoURL: URL?
@@ -57,10 +59,11 @@ class ValificationViewController: UIViewController {
         // navigation barの非表示設定
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        // 写真へアプリのアクセス
+        // 画面部品設定
+        /// 写真へアプリのアクセス
         self.imagePickerController = UIImagePickerController()
         
-        // 部品
+        /// 部品
         let testButton: UIButton = UIButton()
         testButton.frame = CGRect(x: 10, y: 50, width: 60, height: 30)
         testButton.setTitle("読込", for: .normal)
@@ -68,7 +71,7 @@ class ValificationViewController: UIViewController {
         testButton.tag = 1
         testButton.addTarget(self, action: #selector(accessPicApp), for: UIControl.Event.touchUpInside)
         
-        // 動画表示1
+        /// 動画表示1
         let playerFrame = CGRect(x: self.view.frame.width / 6, y: 30, width: self.view.frame.width / 3 * 2, height: self.view.frame.height / 5 * 2)
         self.playerView = PlayerView(frame: playerFrame)
         playerView.backgroundColor = .systemGray
@@ -79,15 +82,24 @@ class ValificationViewController: UIViewController {
         playerView2.backgroundColor = .systemGray
         playerView2.delegate = self
         
-        // tmp
+        /// tmp
         imageView = UIImageView()
         imageView.frame = CGRect(x: 0, y: self.view.frame.height / 2, width: 50, height: 50)
+        
+        /// progress bar
+        self.bar = UIProgressView()
+        bar.frame = CGRect(x: self.view.frame.width / 4, y: self.view.frame.height / 3, width: self.view.frame.width / 2, height: 10)
+        bar.progress = 0
+        bar.isHidden = true
+        bar.progressTintColor = .systemBlue
+        bar.transform = CGAffineTransform(scaleX: 1.0, y: 5)
         
         self.view.backgroundColor = .systemGray5
         self.view.addSubview(testButton)
         self.view.addSubview(playerView)
         self.view.addSubview(playerView2)
         self.view.addSubview(imageView)
+        self.view.addSubview(bar)
     }
     
     //画面消える時にremove
@@ -104,7 +116,7 @@ class ValificationViewController: UIViewController {
                 // TODO
             }else if keyPath == "status"{
                 if playerItem.status == AVPlayerItem.Status.readyToPlay{
-                    self.avplayer.play()
+                    //self.avplayer.play()
                 }else{
                     print("error")
                 }
@@ -137,15 +149,19 @@ class ValificationViewController: UIViewController {
 //        print("playerItem.duration.value: ", playerItem.duration.value)
 //        print("playerItem.duration.value: ", playerItem.duration.timescale)
         
+        ///
         let totalTime   = TimeInterval(playerItem.duration.value) / TimeInterval(playerItem.duration.timescale)
         let timeStr = "\(formatPlayTime(secounds: currentTime))/\(formatPlayTime(secounds: totalTime))"
         playerView.timeLabel.text = timeStr
         
-        // スライダー更新
+        /// スライダー更新
         if !self.playerView.sliding {
             // 播放进度
             self.playerView.slider.value = Float(currentTime/totalTime)
         }
+        
+        // グラフ更新
+        
     }
 }
 
@@ -179,22 +195,24 @@ extension ValificationViewController: UIImagePickerControllerDelegate, UINavigat
         
         // 画面更新
         /// 写真アプリの画面消去
-        imagePickerController.dismiss(animated: true, completion: nil)
-        /// TODO: - 解析中の画面を表示したい
-        
-        
-        // 骨格検出
-        do {
-            try callPoseNet(mediaURL: mediaURL)
-        } catch APIError.generateImage(let message){
-            // エラー内容表示
-            print(message)
+        imagePickerController.dismiss(animated: true) {
+            // 骨格検出
+            do {
+                /// 骨格検出処理呼び出し
+                try self.callPoseNet(mediaURL: mediaURL)
+                
+                /// 新規動画作成（呼び出した動画と、骨格検出のデータを合成した動画の作成（メモリ上に））
+                
+            } catch APIError.generateImage(let message){
+                // エラー内容表示
+                print(message)
 
-            // 各種初期化
-            /// AVPlayer
-            /// Poseなど
-        } catch {
-            
+                // 各種初期化
+                /// AVPlayer
+                /// Poseなど
+            } catch {
+                
+            }
         }
     }
     
@@ -290,7 +308,7 @@ extension ValificationViewController: TestPlayerViewDelegate {
 extension ValificationViewController: PoseNetDelegate {
     // playerView(playerView2)への表示する動画の、「一画像」の解析結果のdelegate
     func poseNet(_ poseNet: PoseNet, didPredict predictions: PoseNetOutput) {
-        print("poseNetにて、delegate実行します")
+        //print("poseNetにて、delegate実行します")
         // poseBuilder設定
         let poseBuilder = PoseBuilder(output: predictions,
                                       configuration: poseBuilderConfiguration,
@@ -302,10 +320,10 @@ extension ValificationViewController: PoseNetDelegate {
         // [pose]生成
         if AnalysisObj == 1 {
             self.poses1?.append(poses)
-            print("poses1: poseデータ追加しました！")
+            //print("poses1: poseデータ追加しました！")
         } else {
             self.poses2?.append(poses)
-            print("poses2: poseデータ追加しました！")
+            //print("poses2: poseデータ追加しました！")
         }
     }
 }

@@ -50,8 +50,9 @@ class PoseNet {
     ///     - image: Image passed by the PoseNet model.
     func predict(_ image: CGImage) {
         
-        DispatchQueue.global(qos: .userInitiated).async {
+//        DispatchQueue.global(qos: .userInitiated).async {
             
+        autoreleasepool{
             // Wrap the image in an instance of PoseNetInput to have it resized
             // before being passed to the PoseNet model.
             let input: MLFeatureProvider = PoseNetInput(image: image, size: self.modelInputSize)
@@ -65,10 +66,13 @@ class PoseNet {
                                               modelInputSize: self.modelInputSize,
                                               modelOutputStride: self.outputStride)
             
-            DispatchQueue.main.async {
-                print("predict delegate called")
-                self.delegate?.poseNet(self, didPredict: poseNetOutput)
-            }
+//            DispatchQueue.main.async {
+            //print("predict delegate called")
+            self.delegate?.poseNet(self, didPredict: poseNetOutput)
+//            }
         }
+            
+            
+//        }
     }
 }

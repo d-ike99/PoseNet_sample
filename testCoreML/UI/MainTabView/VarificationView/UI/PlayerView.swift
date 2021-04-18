@@ -41,34 +41,43 @@ class PlayerView: UIView {
         }
     }
     var playAndPauseBtn: UIButton!
+    var poseGraph: GraphView!
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        // プレイヤー領域設定
-        let playerRect = CGRect(x: self.bounds.minX, y: self.bounds.minY, width: self.bounds.maxX, height: self.bounds.maxY / 4 * 3)
+        // 画面部品設定
+        /// プレイヤー領域設定
+        let playerRect = CGRect(x: self.bounds.minX, y: self.bounds.minY, width: self.bounds.maxX, height: self.bounds.maxY / 4 * 2)
         playerLayer?.frame = playerRect
         
-        // シークラベル
+        /// シークラベル
         let labelRect = CGRect(x: bounds.maxX - 120, y: bounds.maxY - 30, width: 120, height: 30)
         self.timeLabel = UILabel(frame: labelRect)
+        timeLabel.textAlignment = .right
         
-        // シークラベルの制御状況
+        /// シークラベルの制御状況
         self.sliding = false
         self.playing = false
         
-        // 再生・停止ボタン
+        /// 再生・停止ボタン
         self.playAndPauseBtn = UIButton()
         playAndPauseBtn.frame = CGRect(x: 10, y: bounds.maxY - 30, width: 40, height: 30)
         playAndPauseBtn.addTarget(self, action: #selector(playAndPause), for: UIControl.Event.touchUpInside)
         
+        /// グラフ
+        let graphRect = CGRect(x: self.bounds.minX, y: self.bounds.maxY / 2, width: self.bounds.maxX, height: self.bounds.maxY / 3)
+        poseGraph = GraphView(frame: graphRect)
+        
         self.slider = UISlider()
         
-        // 表示
+        // 画面調整
+        /// 表示
         self.addSubview(timeLabel)
         self.addSubview(playAndPauseBtn)
+        self.addSubview(poseGraph)
         
-        // 背景色
+        /// 背景色
         self.backgroundColor = .systemGray
     }
     
@@ -94,6 +103,14 @@ class PlayerView: UIView {
         }
 
         delegate?.testPlayer(playerView: self, playAndPause: btn)
+    }
+    
+    
+    /// <#Description#>
+    public func updateGraphData(poseData: [[Pose]]){
+        for one_pose in poseData {
+            poseGraph.didUpdatedChartView(poses: one_pose)
+        }
     }
 }
 

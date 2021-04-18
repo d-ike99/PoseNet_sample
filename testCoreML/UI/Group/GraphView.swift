@@ -41,10 +41,10 @@ extension GraphView {
     func setupViews() {
         //y
         chartView2.translatesAutoresizingMaskIntoConstraints = false
-        chartView2.frame = CGRect(x: 0, y: (self.frame.height / 2) - 100, width: self.frame.width, height: 250)
-        chartView2.leftAxis.axisMaximum = 700 //y左軸最大値
+        chartView2.frame = self.bounds
+        chartView2.leftAxis.axisMaximum = 50 //y左軸最大値
         chartView2.leftAxis.axisMinimum = 0.0 //y左軸最小値
-        chartView2.leftAxis.labelCount = 5 //y軸ラベルの表示数
+        chartView2.leftAxis.labelCount = 1 //y軸ラベルの表示数
         chartView2.leftAxis.drawTopYLabelEntryEnabled = true //y軸の最大値
 
 
@@ -52,8 +52,8 @@ extension GraphView {
         self.chartView2.setVisibleXRange(minXRange: 0.0, maxXRange: 30.0)
 
         chartView2.rightAxis.enabled = false //y右軸を非表示
-        chartView2.legend.enabled = true //凡例を表示
-
+        chartView2.legend.enabled = false //凡例を表示
+        //chartView2.moveViewToX(<#T##xValue: Double##Double#>)
 
         self.addSubview(chartView2)
     }
