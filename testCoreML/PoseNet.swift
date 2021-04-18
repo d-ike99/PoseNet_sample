@@ -49,7 +49,9 @@ class PoseNet {
     /// - parameters:
     ///     - image: Image passed by the PoseNet model.
     func predict(_ image: CGImage) {
+        
         DispatchQueue.global(qos: .userInitiated).async {
+            
             // Wrap the image in an instance of PoseNetInput to have it resized
             // before being passed to the PoseNet model.
             let input: MLFeatureProvider = PoseNetInput(image: image, size: self.modelInputSize)
@@ -58,12 +60,13 @@ class PoseNet {
             guard let prediction: MLFeatureProvider = try? self.poseNetMLModel.prediction(from: input) else {
                 return
             }
-
+            
             let poseNetOutput = PoseNetOutput(prediction: prediction,
                                               modelInputSize: self.modelInputSize,
                                               modelOutputStride: self.outputStride)
-
+            
             DispatchQueue.main.async {
+                print("predict delegate called")
                 self.delegate?.poseNet(self, didPredict: poseNetOutput)
             }
         }

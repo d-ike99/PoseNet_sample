@@ -44,7 +44,10 @@ class PlayerView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        playerLayer?.frame = self.bounds
+        
+        // プレイヤー領域設定
+        let playerRect = CGRect(x: self.bounds.minX, y: self.bounds.minY, width: self.bounds.maxX, height: self.bounds.maxY / 4 * 3)
+        playerLayer?.frame = playerRect
         
         // シークラベル
         let labelRect = CGRect(x: bounds.maxX - 120, y: bounds.maxY - 30, width: 120, height: 30)
@@ -64,6 +67,9 @@ class PlayerView: UIView {
         // 表示
         self.addSubview(timeLabel)
         self.addSubview(playAndPauseBtn)
+        
+        // 背景色
+        self.backgroundColor = .systemGray
     }
     
     // スライダー押下

@@ -32,6 +32,8 @@
 		8A6AFFFB25736E9D009923B3 /* GradientOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFED25736E9D009923B3 /* GradientOverlayView.swift */; };
 		8A6AFFFC25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFEF25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift */; };
 		8A6AFFFD25736E9D009923B3 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFF025736E9D009923B3 /* VideoCapture.swift */; };
+		8A89C5832629594D00920023 /* ValificationViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89C5822629594D00920023 /* ValificationViewControllerExtension.swift */; };
+		8A89C58B262A7A6000920023 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89C58A262A7A6000920023 /* Error.swift */; };
 		8A96639C2626586900C9E753 /* MainTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96639B2626586900C9E753 /* MainTabRouter.swift */; };
 		8A9663A42626592900C9E753 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663A32626592900C9E753 /* MainTabViewController.swift */; };
 		8A9663A926265C7100C9E753 /* ValificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663A826265C7100C9E753 /* ValificationRouter.swift */; };
@@ -93,6 +95,8 @@
 		8A6AFFED25736E9D009923B3 /* GradientOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientOverlayView.swift; sourceTree = "<group>"; };
 		8A6AFFEF25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Extension.swift"; sourceTree = "<group>"; };
 		8A6AFFF025736E9D009923B3 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		8A89C5822629594D00920023 /* ValificationViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValificationViewControllerExtension.swift; sourceTree = "<group>"; };
+		8A89C58A262A7A6000920023 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8A96639B2626586900C9E753 /* MainTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabRouter.swift; sourceTree = "<group>"; };
 		8A9663A32626592900C9E753 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		8A9663A826265C7100C9E753 /* ValificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValificationRouter.swift; path = testCoreML/UI/MainTabView/ValificationRouter.swift; sourceTree = SOURCE_ROOT; };
@@ -245,8 +249,17 @@
 			children = (
 				8A6AFFEF25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift */,
 				8A6AFFF025736E9D009923B3 /* VideoCapture.swift */,
+				8A89C58A262A7A6000920023 /* Error.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A89C5812629593900920023 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8A89C5822629594D00920023 /* ValificationViewControllerExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		8A9663962625DDD000C9E753 /* MainTabView */ = {
@@ -262,6 +275,7 @@
 		8A9663972625DDE000C9E753 /* VarificationView */ = {
 			isa = PBXGroup;
 			children = (
+				8A89C5812629593900920023 /* Extension */,
 				8A9663D32627AA9F00C9E753 /* UI */,
 				8A9663A826265C7100C9E753 /* ValificationRouter.swift */,
 				8A9663AD26265C7E00C9E753 /* ValificationViewController.swift */,
@@ -543,6 +557,7 @@
 				8A6AFFCC25733F5F009923B3 /* PoseNetMobileNet075S16FP16.mlmodel in Sources */,
 				8A6AFFF825736E9D009923B3 /* PoseImageView.swift in Sources */,
 				8A6AFFF325736E9D009923B3 /* PoseBuilder+Single.swift in Sources */,
+				8A89C58B262A7A6000920023 /* Error.swift in Sources */,
 				8A9663AE26265C7E00C9E753 /* ValificationViewController.swift in Sources */,
 				8A6AFFDD25736E93009923B3 /* CGImage+Extension.swift in Sources */,
 				8A6AFFF125736E9D009923B3 /* Joint.swift in Sources */,
@@ -554,6 +569,7 @@
 				8A6AFFFD25736E9D009923B3 /* VideoCapture.swift in Sources */,
 				8A6AFF9B25733AA8009923B3 /* SceneDelegate.swift in Sources */,
 				8A6AFFDC25736E93009923B3 /* CGPoint+Extension.swift in Sources */,
+				8A89C5832629594D00920023 /* ValificationViewControllerExtension.swift in Sources */,
 				8A6AFFF725736E9D009923B3 /* ViewController.swift in Sources */,
 				8A6AFFD425736CA6009923B3 /* PoseNetOutput.swift in Sources */,
 				8A6AFFFC25736E9D009923B3 /* AVCaptureVideoOrientation+Extension.swift in Sources */,
