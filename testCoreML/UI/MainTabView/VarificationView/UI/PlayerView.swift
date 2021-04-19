@@ -104,13 +104,18 @@ class PlayerView: UIView {
 
         delegate?.testPlayer(playerView: self, playAndPause: btn)
     }
-    
-    
+}
+
+// 
+extension PlayerView {
     /// <#Description#>
     public func updateGraphData(poseData: [[Pose]]){
         for one_pose in poseData {
             poseGraph.didUpdatedChartView(poses: one_pose)
         }
     }
+    
+    public func updateGraphPose(poseRatio: Double){
+        self.poseGraph.updateDispPos(poseRatio: poseRatio)
+    }
 }
-

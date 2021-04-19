@@ -161,7 +161,9 @@ class ValificationViewController: UIViewController {
         }
         
         // グラフ更新
-        
+        /// 位置の割合を算出する
+        let ratio: Double = Double(currentTime) / Double(totalTime)
+        self.playerView.updateGraphPose(poseRatio: ratio)
     }
 }
 
@@ -202,6 +204,10 @@ extension ValificationViewController: UIImagePickerControllerDelegate, UINavigat
                 try self.callPoseNet(mediaURL: mediaURL)
                 
                 /// 新規動画作成（呼び出した動画と、骨格検出のデータを合成した動画の作成（メモリ上に））
+                
+                // 定期的実行（シークバーを更新し続ける？？）
+                self.link = CADisplayLink(target: self, selector: #selector(self.update))
+                self.link.add( to: RunLoop.main, forMode: RunLoop.Mode.default)
                 
             } catch APIError.generateImage(let message){
                 // エラー内容表示
@@ -270,10 +276,6 @@ extension ValificationViewController: UIImagePickerControllerDelegate, UINavigat
         // 表示設定
         self.playerView.playerLayer = self.playerLayer
         self.playerView.layer.insertSublayer(playerLayer, at: 0)
-        
-        // 定期的実行（シークバーを更新し続ける？？）
-        self.link = CADisplayLink(target: self, selector: #selector(update))
-        self.link.add( to: RunLoop.main, forMode: RunLoop.Mode.default)
     }
 }
 

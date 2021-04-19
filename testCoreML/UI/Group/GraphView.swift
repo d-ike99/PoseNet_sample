@@ -36,74 +36,15 @@ class GraphView: UIView {
 
 }
 
-// 部品設定
-extension GraphView {
-    func setupViews() {
-        //y
-        chartView2.translatesAutoresizingMaskIntoConstraints = false
-        chartView2.frame = self.bounds
-        chartView2.leftAxis.axisMaximum = 50 //y左軸最大値
-        chartView2.leftAxis.axisMinimum = 0.0 //y左軸最小値
-        chartView2.leftAxis.labelCount = 1 //y軸ラベルの表示数
-        chartView2.leftAxis.drawTopYLabelEntryEnabled = true //y軸の最大値
-
-
-        chartView2.dragXEnabled = true
-        self.chartView2.setVisibleXRange(minXRange: 0.0, maxXRange: 30.0)
-
-        chartView2.rightAxis.enabled = false //y右軸を非表示
-        chartView2.legend.enabled = false //凡例を表示
-        //chartView2.moveViewToX(<#T##xValue: Double##Double#>)
-
-        self.addSubview(chartView2)
-    }
-
-    func setupInitialDataEntries() {
-        (0..<Int(xValue)).forEach {
-            let dataEntryX = ChartDataEntry(x: Double($0), y: 0)
-            let dataEntryY = ChartDataEntry(x: Double($0), y: 0)
-            dataEntriesX.append(dataEntryX)
-            dataEntriesY.append(dataEntryY)
-        }
-    }
-
-    func setupChartData() {
-        //y
-        let chartDataSetX = LineChartDataSet(entries: dataEntriesX, label: "y-ac")
-        chartDataSetX.drawCirclesEnabled = false
-        chartDataSetX.setColor(NSUIColor.green)
-        chartDataSetX.mode = .linear
-        chartDataSetX.drawValuesEnabled = false
-
-        let chartDataSetY = LineChartDataSet(entries: dataEntriesY, label: "lefyElbow")
-        chartDataSetY.drawCirclesEnabled = false
-        chartDataSetY.setColor(NSUIColor.blue)
-        chartDataSetY.mode = .linear
-        chartDataSetY.drawValuesEnabled = false
-
-        var test: [LineChartDataSet] = [LineChartDataSet]()
-        test.append(chartDataSetX)
-        test.append(chartDataSetY)
-
-        let chartData2 = LineChartData(dataSets: test)
-        chartView2.data = chartData2
-        chartView2.xAxis.labelPosition = .bottom
-
-    }
-}
-
 // update graph
 extension GraphView {
-    // update chart view
+    // グラフの更新する
     public func didUpdatedChartView(poses: [Pose]) {
-
-        // TODO: - 取得したposeを(yValue: Double, getXValue: Double)に変換する
+        /// 初期化
         var pose1: CGPoint?
-        var pose2: CGPoint?
+        var tmp_maxY: CGFloat! = 0
         
-        var pose1valid: Bool! = false
-        var pose2valid: Bool! = false
-        
+        /// poseデータの取得
         for pose in poses {
             // Draw the segment lines.
             for segment in PoseImageView.jointSegments {
@@ -114,42 +55,47 @@ extension GraphView {
                     continue
                 }
             }
-            pose1 = pose[.leftShoulder].position
-            pose2 = pose[.rightElbow].position
-            
-            //pose1valid = pose[.].isValid
-            pose2valid = pose[.rightElbow].isValid
+            pose1 = pose[.rightWrist].position
         }
 
-
-        // 新しいデータを作成する（補足：1点のデータ）
-        if pose1valid {
-            let newDataEntryX: ChartDataEntry = ChartDataEntry(x: self.xValue, y: Double(pose1!.y))
-            updateChartView(with: newDataEntryX, dataEntries: &dataEntriesX, dispIndex: 0)
-            
-            print("testY", pose1!.y)
-            print("testX", pose1!.x)
+        /// グラフ表示用データの作成
+        var get_pose: CGFloat?
+        if pose1?.y != nil {
+            get_pose = pose1!.y
+            if tmp_maxY < pose1!.y {
+                tmp_maxY = pose1!.y
+            }
         }
+        else {
+            get_pose = 0
+        }
+        let newDataEntryX: ChartDataEntry = ChartDataEntry(x: self.xValue, y: Double(get_pose!))
         
-        if pose2valid {
-            let newDataEntryY: ChartDataEntry = ChartDataEntry(x: self.xValue, y: Double(pose2!.y))
-            updateChartView(with: newDataEntryY, dataEntries: &dataEntriesY, dispIndex: 1)
-        }
-
+        /// グラフの表示内容更新
+        updateChartView(with: newDataEntryX, dataEntries: &dataEntriesX, dispIndex: 0)
+        
+        chartView2.leftAxis.axisMaximum = Double(tmp_maxY + 10) //y左軸最大値
+        chartView2.leftAxis.axisMinimum = Double(tmp_maxY - 20)
+        
         self.xValue += 1
     }
 
-    // viewの更新
+    // グラフの表示内容を更新する
     internal func updateChartView(with newDataEntry: ChartDataEntry, dataEntries: inout [ChartDataEntry], dispIndex: Int) {
-
-        // データの追加
+        /// データの追加
         dataEntries.append(newDataEntry)
         chartView2.data?.addEntry(newDataEntry, dataSetIndex: dispIndex)
 
-        // viewの表示更新
+        /// viewの表示更新
         chartView2.notifyDataSetChanged()
 
         //　移動する？
-        chartView2.moveViewToX(newDataEntry.x)
+        //chartView2.moveViewToX(newDataEntry.x)
+    }
+    
+    // グラフの表示位置の更新
+    public func updateDispPos(poseRatio: Double){
+        self.chartView2.setNeedsDisplay()
+        self.chartView2.highlightValue(x: round(self.xValue * poseRatio), dataSetIndex: 0)  // 本メソッドは、touchイベントを参考に、chartsのソースを調査した
     }
 }

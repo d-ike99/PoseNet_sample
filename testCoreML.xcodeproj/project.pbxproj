@@ -34,6 +34,7 @@
 		8A6AFFFD25736E9D009923B3 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6AFFF025736E9D009923B3 /* VideoCapture.swift */; };
 		8A89C5832629594D00920023 /* ValificationViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89C5822629594D00920023 /* ValificationViewControllerExtension.swift */; };
 		8A89C58B262A7A6000920023 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89C58A262A7A6000920023 /* Error.swift */; };
+		8A89C59F262D7CCE00920023 /* GraphViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89C59E262D7CCE00920023 /* GraphViewExtension.swift */; };
 		8A96639C2626586900C9E753 /* MainTabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96639B2626586900C9E753 /* MainTabRouter.swift */; };
 		8A9663A42626592900C9E753 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663A32626592900C9E753 /* MainTabViewController.swift */; };
 		8A9663A926265C7100C9E753 /* ValificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9663A826265C7100C9E753 /* ValificationRouter.swift */; };
@@ -97,6 +98,7 @@
 		8A6AFFF025736E9D009923B3 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		8A89C5822629594D00920023 /* ValificationViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValificationViewControllerExtension.swift; sourceTree = "<group>"; };
 		8A89C58A262A7A6000920023 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8A89C59E262D7CCE00920023 /* GraphViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewExtension.swift; sourceTree = "<group>"; };
 		8A96639B2626586900C9E753 /* MainTabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabRouter.swift; sourceTree = "<group>"; };
 		8A9663A32626592900C9E753 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		8A9663A826265C7100C9E753 /* ValificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValificationRouter.swift; path = testCoreML/UI/MainTabView/ValificationRouter.swift; sourceTree = SOURCE_ROOT; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				8AB25DB925D8FB2700994202 /* GraphView.swift */,
+				8A89C59E262D7CCE00920023 /* GraphViewExtension.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 			files = (
 				8A6AFFF625736E9D009923B3 /* PoseBuilderConfiguration.swift in Sources */,
 				8A6AFFF225736E9D009923B3 /* PoseBuilder+Multiple.swift in Sources */,
+				8A89C59F262D7CCE00920023 /* GraphViewExtension.swift in Sources */,
 				8A6AFFFA25736E9D009923B3 /* PopOverModalViewController.swift in Sources */,
 				8AB25DBA25D8FB2700994202 /* GraphView.swift in Sources */,
 				8A6AFFD525736CA6009923B3 /* PoseNet.swift in Sources */,
