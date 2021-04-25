@@ -46,12 +46,49 @@ class PoseImageView: UIImageView {
 
     // MARK: - Rendering methods
 
+    func createNewImage(poses: [Pose], on frame: CGImage) -> UIImage  {
+        let dstImageSize = CGSize(width: frame.width, height: frame.height)
+        let dstImageFormat = UIGraphicsImageRendererFormat()
+
+        dstImageFormat.scale = 1
+        let renderer = UIGraphicsImageRenderer(size: dstImageSize,
+                                               format: dstImageFormat)
+
+        let dstImage: UIImage = renderer.image { rendererContext in
+            // Draw the current frame as the background for the new image.
+            draw(image: frame, in: rendererContext.cgContext)
+
+            for pose in poses {
+                // Draw the segment lines.
+                for segment in PoseImageView.jointSegments {
+                    let jointA = pose[segment.jointA]
+                    let jointB = pose[segment.jointB]
+
+                    guard jointA.isValid, jointB.isValid else {
+                        continue
+                    }
+
+                    drawLine(from: jointA,
+                             to: jointB,
+                             in: rendererContext.cgContext)
+                }
+
+                // Draw the joints as circles above the segment lines.
+                for joint in pose.joints.values.filter({ $0.isValid }) {
+                    draw(circle: joint, in: rendererContext.cgContext)
+                }
+            }
+        }
+
+        return dstImage
+    }
+    
     /// Returns an image showing the detected poses.
     ///
     /// - parameters:
     ///     - poses: An array of detected poses.
     ///     - frame: The image used to detect the poses and used as the background for the returned image.
-    func show(poses: [Pose], on frame: CGImage) {
+    func show(poses: [Pose], on frame: CGImage)  {
         let dstImageSize = CGSize(width: frame.width, height: frame.height)
         let dstImageFormat = UIGraphicsImageRendererFormat()
 

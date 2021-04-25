@@ -238,7 +238,6 @@
 			children = (
 				8A9663962625DDD000C9E753 /* MainTabView */,
 				8AB25DB825D8FAD500994202 /* Group */,
-				8A6AFFE925736E9D009923B3 /* ViewController.swift */,
 				8A6AFFEA25736E9D009923B3 /* PoseImageView.swift */,
 				8A6AFFEC25736E9D009923B3 /* PopOverModalViewController.swift */,
 				8A6AFFED25736E9D009923B3 /* GradientOverlayView.swift */,
@@ -297,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				8AB25DB925D8FB2700994202 /* GraphView.swift */,
+				8A6AFFE925736E9D009923B3 /* ViewController.swift */,
 				8A89C59E262D7CCE00920023 /* GraphViewExtension.swift */,
 			);
 			path = Group;

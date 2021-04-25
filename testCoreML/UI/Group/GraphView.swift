@@ -43,7 +43,7 @@ extension GraphView {
         /// 初期化
         var pose1: CGPoint?
         var tmp_maxY: CGFloat! = 0
-        
+        var tmp_minY: CGFloat! = 0
         /// poseデータの取得
         for pose in poses {
             // Draw the segment lines.
@@ -65,6 +65,9 @@ extension GraphView {
             if tmp_maxY < pose1!.y {
                 tmp_maxY = pose1!.y
             }
+            if tmp_minY > pose1!.y {
+                tmp_minY = pose1!.y
+            }
         }
         else {
             get_pose = 0
@@ -74,8 +77,8 @@ extension GraphView {
         /// グラフの表示内容更新
         updateChartView(with: newDataEntryX, dataEntries: &dataEntriesX, dispIndex: 0)
         
-        chartView2.leftAxis.axisMaximum = Double(tmp_maxY + 10) //y左軸最大値
-        chartView2.leftAxis.axisMinimum = Double(tmp_maxY - 20)
+        chartView2.leftAxis.axisMaximum = Double(tmp_maxY + 50) //y左軸最大値
+        chartView2.leftAxis.axisMinimum = Double(tmp_minY - 50)
         
         self.xValue += 1
     }
